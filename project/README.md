@@ -1,19 +1,13 @@
-# Coin Detection & Classification (OpenCV)
+# Projet Vision : Détection, Identification et Comptage de Pièces d'Euros
 
-Ce projet est un outil de vision par ordinateur développé en **C++** avec **OpenCV**. Il permet de détecter, classifier et calculer la valeur totale de pièces de monnaie en Euro à partir d'images, avec une gestion spécifique des fonds complexes (textures, marbre, reflets).
-
-
-# Pré-traitement
-- **Analyse de Texture** : L'algorithme calcule l'écart-type (StdDev) des niveaux de gris pour différencier un fond lisse d'un fond texturé (ex: marbre).
-- **Filtrage** :
-    - **Bilateral Filter** : Utilisé sur les fonds texturés pour gommer le "bruit" du marbre tout en préservant les bords nets des pièces.
-    - **Median Blur/Gaussian Blur** : Élimine le grain sur les fonds plus lisses.
-
-# Segmentation
-- Utilisation de la Transformée de Hough Circulaire avec des paramètres dynamiques.
-- Suppression des cercles superposés (logique de Non-Maximum Suppression).
-- Suppression des parasites basée sur le ratio de taille par rapport à la plus grande pièce détectée.
-
-# Classification
-- **Classification Colorimétrique HSV** : Distinction des trois familles de métaux (Cuivre, Or, Bi-métal) via l'espace de couleur HSV, plus stable que le RGB face aux variations d'éclairage.
+**Contexte** : Le projet repose sur l'analyse d'images représentant un ensemble de pièces de monnaie en euros. Les photographies ont été capturées par un appareil mobile standard (téléphone) en vue de dessus (plongée). Les pièces sont disposées sur une table présentant des fonds de natures diverses (homogènes, texturés, à motifs).
+**Objectif** : Concevoir et implémenter un algorithme de vision par ordinateur capable, à partir d'une simple image en entrée, de :
+- **Détecter et compter** le nombre total de pièces présentes.
+- **Identifier** la valeur de chaque pièce.
+- **Estimer** la somme totale en euros représentée sur l'image.
   
+# Méthodologie
+L'approche finale repose sur un pipeline de traitement adaptatif qui ajuste ses paramètres en fonction de la complexité de l'image.
+- **Segmentation adaptative en fonction de la texture**
+  Au lieu d'un filtrage statique, le système analyse d'abord la scène :
+  - **Ecart-type (StdDev)** : Définition : Mesure statistique de la dispersion des niveaux de gris. Si StdDev > seuil, application d'un **Filtre Bilatéral** (lissage préservant les contours) pour ignorer les veines du marbre.
