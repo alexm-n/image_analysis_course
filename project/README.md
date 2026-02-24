@@ -3,9 +3,6 @@
 Ce projet est un outil de vision par ordinateur développé en **C++** avec **OpenCV**. Il permet de détecter, classifier et calculer la valeur totale de pièces de monnaie en Euro à partir d'images, avec une gestion spécifique des fonds complexes (textures, marbre, reflets).
 
 
-
-## Pipeline de traitement :
-
 # Pré-traitement
 - **Analyse de Texture** : L'algorithme calcule l'écart-type (StdDev) des niveaux de gris pour différencier un fond lisse d'un fond texturé (ex: marbre).
 - **Filtrage** :
@@ -22,5 +19,6 @@ Ce projet est un outil de vision par ordinateur développé en **C++** avec **Op
 - **Post-traitement rigoureux** :
     - Suppression des cercles superposés (logique de Non-Maximum Suppression).
     - Suppression des parasites basée sur le ratio de taille par rapport à la plus grande pièce détectée.
+
 
 
