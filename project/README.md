@@ -16,9 +16,4 @@ Ce projet est un outil de vision par ordinateur développé en **C++** avec **Op
 
 # Classification
 - **Classification Colorimétrique HSV** : Distinction des trois familles de métaux (Cuivre, Or, Bi-métal) via l'espace de couleur HSV, plus stable que le RGB face aux variations d'éclairage.
-- **Post-traitement rigoureux** :
-    - Suppression des cercles superposés (logique de Non-Maximum Suppression).
-    - Suppression des parasites basée sur le ratio de taille par rapport à la plus grande pièce détectée.
-
-
-
+  
