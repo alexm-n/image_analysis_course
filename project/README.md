@@ -37,6 +37,10 @@ C'est le cœur du système. Plutôt que de mesurer une taille fixe en pixels (qu
 Le système a été évalué sur une base de test divisée en 8 groupes (gp1 à gp8) présentant des images de distance, luminosité et texture variée.
 
 ![Aperçu du projet](./tests.png)
+![Aperçu du projet](./res0.png)
+![Aperçu du projet](./res1.png)
+![Aperçu du projet](./res3.png)
+
 
 **Analyse des Résultats**
 Les résultats démontrent une faiblesse structurelle du système liée à une approche purement mathématique sans apprentissage :
@@ -57,5 +61,6 @@ Pour dépasser ce plafond de verre de 8% de précision globale, le système devr
 - **Calibration de la caméra (Correction de perspective)** : Utiliser un objet de référence (ex: une carte de crédit) pour appliquer une transformation de perspective (homographie) afin de ramener l'image à un plan parfaitement plat avant analyse.
 - **Apprentissage Profond** : Remplacer l'approche mathématique par un réseau de neurones convolutifs (CNN) tel que YOLO (You Only Look Once) ou Faster R-CNN. Ces modèles ne cherchent pas un rayon en pixels, mais apprennent les caractéristiques visuelles directes (motifs de frappe, texture, couleur relative) des pièces, devenant ainsi robustes aux changements de luminosité et d'angles.
 - **Égalisation Adaptative d'Histogramme (CLAHE)** : Appliquer un pré-traitement de contraste local pour normaliser les reflets et les ombres sur la surface du métal avant le calcul colorimétrique.
+
 
 
