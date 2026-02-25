@@ -4,6 +4,7 @@
 #include <string>
 #include <iomanip>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 using namespace cv;
@@ -165,6 +166,14 @@ std::pair<cv::Mat, std::pair<int, double>> identifyAndDraw(Mat src) {
     return {img, {countFinal, totalMoney}};
 }
 
+string cleanString(string s) {
+    // Supprime les espaces au début et à la fin
+    s.erase(0, s.find_first_not_of(" \t\n\r"));
+    s.erase(s.find_last_not_of(" \t\n\r") + 1);
+    // Supprime les \r résiduels (cas classique des CSV Windows sur Linux)
+    s.erase(remove(s.begin(), s.end(), '\r'), s.end());
+    return s;
+}
 
 
 int main() {
@@ -189,18 +198,18 @@ int main() {
 
     while (getline(file, line)) {
         stringstream ss(line);
-        string nom, nb, val, grp;
+        string nom1, nb, val, grp;
 
-        getline(ss, nom, ',');
+        getline(ss, nom1, ',');
         getline(ss, nb, ',');
         getline(ss, val, ',');
         getline(ss, grp, ',');
 
         int gtNb = stoi(nb);
         double gtVal = stod(val);
-        string groupe = grp;
-
-        string path = "C:\\Users\\user\\OneDrive\\Bureau\\AnUniv\\m1-p\\image\\ImageProcessingLab-main\\data\\" + groupe + "\\" + nom;
+        string nom = cleanString(nom1);
+        string groupe = cleanString(grp);
+        string path = "data/" + groupe + "/" + nom;
         cout<<groupe<<" - "<<nom<<endl;
         Mat img = imread(path);
         if (img.empty()) continue;
