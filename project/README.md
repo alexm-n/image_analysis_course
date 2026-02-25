@@ -62,5 +62,6 @@ Pour dépasser ce plafond de verre de 8% de précision globale, le système devr
 - **Apprentissage Profond** : Remplacer l'approche mathématique par un réseau de neurones convolutifs (CNN) tel que YOLO (You Only Look Once) ou Faster R-CNN. Ces modèles ne cherchent pas un rayon en pixels, mais apprennent les caractéristiques visuelles directes (motifs de frappe, texture, couleur relative) des pièces, devenant ainsi robustes aux changements de luminosité et d'angles.
 - **Égalisation Adaptative d'Histogramme (CLAHE)** : Appliquer un pré-traitement de contraste local pour normaliser les reflets et les ombres sur la surface du métal avant le calcul colorimétrique.
 
+Groupe 7 : Zakaria HAMMOUM, Rayane KHATIM, Alexandre MARSELOO
 
 
